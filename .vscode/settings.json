@@ -1,0 +1,8 @@
+{
+    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNUArmEmbeddedToolchain/9_2020-q2-update/bin",
+    "cortex-debug.openocdPath": "C:/Program Files (x86)/GNUArmEmbeddedToolchain/xpack-openocd-0.10.0-15/bin/openocd",
+    "files.associations": {
+        "cstdlib": "cpp",
+        "stack_macros.h": "c"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "configurations": 
+    [
+        {
+            "name": "f103_c_cpp_properties",
+            "compilerPath": "C:/Program Files (x86)/GNUArmEmbeddedToolchain/9_2020-q2-update/bin/arm-none-eabi-gcc",
+            "includePath": 
+            [
+                "${workspaceRoot}/inc/",
+                "${workspaceRoot}/lib/"                
+            ],
+            "defines":
+            [
+                "STM32F10xx"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

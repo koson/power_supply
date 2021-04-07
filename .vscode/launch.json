@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/main.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "searchDir": ["C:/Program Files (x86)/GNUArmEmbeddedToolchain/xpack-openocd-0.10.0-15/scripts"],
+            "svdFile": "./lib/STM32F103xx.svd",            
+            "configFiles": 
+            [
+                "./lib/stlink.cfg",
+                "./lib/stm32f1x.cfg"
+            ]
+        }
+    ]
+}
