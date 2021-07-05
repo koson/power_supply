@@ -12,10 +12,15 @@ public:
     uint8_t receivedBytes[4] = {0};
     volatile uint8_t sendBytes[5] = {10,11,12,13,100}; //last byte = first byte for continious answer
     volatile uint8_t bytesCounter = 0;
+
+    volatile uint8_t receiveBuf[4] = {0};
+    volatile uint8_t transmitBuf[4] = {0};
     void setAnswerByte(uint8_t byte);
+    void dmaOn();
+    void dmaOff();
 private:
     void init();
-
+    void DMA_init();
 };
 
 

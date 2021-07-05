@@ -55,6 +55,8 @@ int main()
 	////_____________________________________________
 	// uint32_t decrease_count = 0;
 	SpiSlave spiSlave;
+	spiSlave.transmitBuf[0] = 10; spiSlave.transmitBuf[1] = 11; spiSlave.transmitBuf[2] = 12; spiSlave.transmitBuf[3] = 13;
+	spiSlave.dmaOn();
 	while(1) {
 		//! for spi_slave
 		if(msec100.timer_mSecFlag) {
@@ -67,15 +69,22 @@ int main()
 			font.intToChar(spiSlave.receivedByte);
 			font.print(20, 20, 0x00FF, font.arr, 4);
 
-			font.intToChar(spiSlave.receivedBytes[0]);
+			// font.intToChar(spiSlave.receivedBytes[0]);
+			// font.print(40, 40, 0x00FF, font.arr, 4);
+			// font.intToChar(spiSlave.receivedBytes[1]);
+			// font.print(40, 60, 0x00FF, font.arr, 4);
+			// font.intToChar(spiSlave.receivedBytes[2]);
+			// font.print(40, 80, 0x00FF, font.arr, 4);
+			// font.intToChar(spiSlave.receivedBytes[3]);
+			// font.print(40, 100, 0x00FF, font.arr, 4);
+			font.intToChar(spiSlave.receiveBuf[0]);
 			font.print(40, 40, 0x00FF, font.arr, 4);
-			font.intToChar(spiSlave.receivedBytes[1]);
+			font.intToChar(spiSlave.receiveBuf[1]);
 			font.print(40, 60, 0x00FF, font.arr, 4);
-			font.intToChar(spiSlave.receivedBytes[2]);
+			font.intToChar(spiSlave.receiveBuf[2]);
 			font.print(40, 80, 0x00FF, font.arr, 4);
-			font.intToChar(spiSlave.receivedBytes[3]);
+			font.intToChar(spiSlave.receiveBuf[3]);
 			font.print(40, 100, 0x00FF, font.arr, 4);
-			//spiSlave.sendBytes[3] = 0x55;
 
 			msec100.timer_mSecFlag = false;
 		}	
