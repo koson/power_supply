@@ -16,11 +16,11 @@ public:
     volatile uint8_t receiveBuf[4] = {0};
     volatile uint8_t transmitBuf[4] = {0};
     void setAnswerByte(uint8_t byte);
-    void dmaOn();
-    void dmaOff();
+    volatile void dmaOn();
+    volatile void dmaOff();
 private:
-    void init();
-    void DMA_init();
+    volatile void init();
+    volatile void DMA_init();
 };
 
 

@@ -8,11 +8,11 @@
             "name": "openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/build/main.elf",
-            "gdbPath": "/usr/bin/gdb-multiarch",
+            /*"gdbPath": "/usr/bin/gdb-multiarch",*/
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "searchDir": ["/usr/share/openocd/scripts"],
+            "searchDir": ["C:\\OpenOCD\\share\\openocd\\scripts"],
             "svdFile": "./lib/STM32F103xx.svd",            
             "configFiles": 
             [

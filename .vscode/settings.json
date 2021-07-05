@@ -1,6 +1,6 @@
 {
-    "cortex-debug.armToolchainPath": "/usr/bin/gdb-multiarch",
-    "cortex-debug.openocdPath": "/usr/bin/openocd",
+    "cortex-debug.armToolchainPath": "C:\\SysGCC\\arm-eabi\\bin",
+    "cortex-debug.openocdPath": "C:\\OpenOCD\\bin\\openocd",
     "files.associations": {
         "cstdlib": "cpp",
         "stack_macros.h": "c"

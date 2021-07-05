@@ -3,7 +3,7 @@
     [
         {
             "name": "f107_c_cpp_properties",
-            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "compilerPath": "C:\\SysGCC\\arm-eabi\\bin\\arm-none-eabi-gcc",
             "includePath": 
             [
                 "${workspaceRoot}/inc/",

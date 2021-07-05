@@ -8,6 +8,8 @@ void *__dso_handle = nullptr; // dummy "guard" that is used to identify dynamic 
 void delay(uint32_t x) {
 	while(x--);
 }
+
+
 int main()
 {    
 	//__enable_irq();
@@ -28,12 +30,12 @@ int main()
 	//pwm.setFrequency(1);
 	Timers antiRattle(1);
 	Timers encoder(3);
-	Timers msec100(4);
+	Timers msec200(4);
 	//But but;
 	//Uart uart(2);
 	//LED13 led;	
 	//__________________________________________
-	__enable_irq();
+	
 	// int x; 	
 	// float xdac=0;
 	// float K_DAC_to_ampere = 1;
@@ -56,12 +58,13 @@ int main()
 	// uint32_t decrease_count = 0;
 	SpiSlave spiSlave;
 	spiSlave.transmitBuf[0] = 10; spiSlave.transmitBuf[1] = 11; spiSlave.transmitBuf[2] = 12; spiSlave.transmitBuf[3] = 13;
-	spiSlave.dmaOn();
+	//spiSlave.dmaOn();
+	__enable_irq();
 	while(1) {
 		//! for spi_slave
-		if(msec100.timer_mSecFlag) {
+		if(msec200.timer_mSecFlag) {
 			//spiSlave.bytesCounter = 0;
-
+			//SpiSlave::pThis->dmaOff();
 			encoder.checkValue();
 			font.intToChar(encoder.encoderValue());
 		    font.print(0,0,0xFF00,font.arr,5);
@@ -85,12 +88,14 @@ int main()
 			font.print(40, 80, 0x00FF, font.arr, 4);
 			font.intToChar(spiSlave.receiveBuf[3]);
 			font.print(40, 100, 0x00FF, font.arr, 4);
-
-			msec100.timer_mSecFlag = false;
+			
+			msec200.timer_mSecFlag = false;
+			//spiSlave.receiveBuf[0]=0; spiSlave.receiveBuf[1]=0; spiSlave.receiveBuf[2]=0; spiSlave.receiveBuf[3]=0;
+			spiSlave.dmaOn();
 		}	
-		if(spiSlave.receivedFlag) {
-			spiSlave.sendBytes[3] +=1;
-			spiSlave.receivedFlag = false;
+		if(spiSlave.receivedFlag) {			
+			spiSlave.transmitBuf[3] ++;
+			spiSlave.receivedFlag = false;			
 		}
 		//encoder.checkValue();
 		////pwm.setFrequency(encoder.encoderValue());

@@ -14,13 +14,12 @@ LIB = lib/
 FRS = freeRTOS/src/
 FRH = freeRTOS/inc/
 
-CPPFLAGS = -mcpu=cortex-m3 -mthumb -march=armv7-m -c -g -O0 -Wall -nostartfiles -lstdc++ \
+CPPFLAGS = -mcpu=cortex-m3 -mthumb -march=armv7-m -c -g -O2 -Wall -nostartfiles -lstdc++ \
 	 -Wno-pointer-arith -mfloat-abi=soft \
 	-u_printf_float -ffast-math -fno-math-errno -ffunction-sections -fdata-sections \
 	-fno-rtti -fno-exceptions -specs=nosys.specs -specs=nano.specs -fno-common -D"assert_param(x)=" \
 	-L"C:/Program Files (x86)/GNUArmEmbeddedToolchain/9_2020-q2-update/arm-none-eabi/lib" 
-CFLAGS = -Wall -g -O0 -specs=nosys.specs -specs=nano.specs \
-	 -c -fno-common -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -Wno-pointer-arith 
+
 LCPPFLAGS = -mcpu=cortex-m3 -mthumb -nostartfiles -lm -lc -lgcc -lstdc++ \
 		 -specs=nano.specs -specs=nosys.specs -fno-exceptions -fno-rtti \
 		 -u_printf_float -mfloat-abi=soft -fno-use-cxa-atexit \
