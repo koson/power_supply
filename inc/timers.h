@@ -15,7 +15,7 @@ class Timers
 {
 public:
     Timers(uint8_t init);
-    static bool timer_mSecFlag;
+    static volatile bool timer_mSecFlag;
     uint16_t encoderValue();
     void checkValue();
 private:

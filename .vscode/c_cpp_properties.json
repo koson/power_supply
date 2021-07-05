@@ -2,8 +2,8 @@
     "configurations": 
     [
         {
-            "name": "f103_c_cpp_properties",
-            "compilerPath": "C:/Program Files (x86)/GNUArmEmbeddedToolchain/9_2020-q2-update/bin/arm-none-eabi-gcc",
+            "name": "f107_c_cpp_properties",
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
             "includePath": 
             [
                 "${workspaceRoot}/inc/",

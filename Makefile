@@ -39,9 +39,10 @@ $(BLD)main.bin: $(BLD)main.elf
 $(BLD)main.lst: $(BLD)main.elf
 	$(OBJD) -D $(BLD)main.elf > $(BLD)main.lst
 $(BLD)main.elf: $(BLD)startup.o $(BLD)main.o $(BLD)uart.o $(BLD)adc.o $(BLD)dac.o
-$(BLD)main.elf: $(BLD)but.o $(BLD)pwm.o $(BLD)timers.o
+$(BLD)main.elf: $(BLD)but.o $(BLD)pwm.o $(BLD)timers.o $(BLD)spi_slave.o
 	$(CC) -o $(BLD)main.elf -T$(LIB)stm32f107.ld $(BLD)startup.o $(BLD)main.o \
 	$(BLD)but.o $(BLD)pwm.o $(BLD)uart.o $(BLD)adc.o $(BLD)dac.o $(BLD)timers.o \
+	$(BLD)spi_slave.o \
 	-I$(LIB) -I$(FRH) $(LCPPFLAGS)
 	arm-none-eabi-size $(BLD)main.elf
 $(BLD)startup.o: $(LIB)startup.cpp
@@ -58,11 +59,14 @@ $(BLD)dac.o: $(SRC)dac.cpp
 	$(CC) $(SRC)dac.cpp -o $(BLD)dac.o -I$(INC) -I$(LIB) -I$(FRH) $(CPPFLAGS)
 $(BLD)uart.o: $(SRC)uart.cpp
 	$(CC) $(SRC)uart.cpp -o $(BLD)uart.o -I$(INC) -I$(LIB) -I$(FRH) $(CPPFLAGS)
+$(BLD)spi_slave.o: $(SRC)spi_slave.cpp
+	$(CC) $(SRC)spi_slave.cpp -o $(BLD)spi_slave.o -I$(INC) -I$(LIB) -I$(FRH) $(CPPFLAGS)	
 $(BLD)main.o: $(TARGET)
 	$(CC) $(TARGET) -o $(BLD)main.o -I$(INC) -I$(LIB) -I$(FRH) $(CPPFLAGS)
 	
 clean:
 	rm -rf $(BLD)*.o $(BLD)*.elf $(BLD)*.lst $(BLD)*.bin $(BLD)*.map 
+	mkdir build
 
 
 	

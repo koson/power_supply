@@ -14,6 +14,7 @@
 #include "pwm.h"
 #include "but.h"
 #include "timers.h"
+#include "spi_slave.h"
 //#include "irq.h"
 //#include "frwrapper.h"
 //#include "frclasses.h"

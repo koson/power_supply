@@ -7,11 +7,12 @@
         {
             "name": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/main.elf",
+            "executable": "${workspaceRoot}/build/main.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "searchDir": ["C:/Program Files (x86)/GNUArmEmbeddedToolchain/xpack-openocd-0.10.0-15/scripts"],
+            "searchDir": ["/usr/share/openocd/scripts"],
             "svdFile": "./lib/STM32F103xx.svd",            
             "configFiles": 
             [

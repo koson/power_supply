@@ -1,6 +1,6 @@
 #include "timers.h"
 
-bool Timers::timer_mSecFlag = false;
+volatile bool Timers::timer_mSecFlag = false;
 
 Timers::Timers(uint8_t i) {
     init(i);
